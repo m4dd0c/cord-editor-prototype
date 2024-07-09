@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.primary-btn {
+  background: linear-gradient(
+      180deg,
+      rgba(183, 52, 179, 0.15) 0%,
+      rgba(164, 46, 156, 0) 100%
+    ),
+    #6e40c9 !important;
+}
+.primary-btn:hover {
+  box-shadow:
+    0 4px 7px rgba(0, 0, 0, 0.15),
+    0 100px 80px rgba(255, 255, 255, 0.02),
+    0 42px 33px rgba(255, 255, 255, 0.024),
+    0 22px 18px rgba(255, 255, 255, 0.028),
+    0 12px 10px rgba(255, 255, 255, 0.034),
+    0 7px 5px rgba(255, 255, 255, 0.04),
+    0 3px 2px rgba(255, 255, 255, 0.07);
+}
+
+.span-or {
+  position: absolute;
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
+  /* 2rem -> right-8 , 200px for after content, 50px for text (OR)*/
+  right: calc(2rem + 250px);
+}
+.span-or::before {
+  content: "";
+  width: 200px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 100%),
+    rgba(255, 255, 255, 0.15)
+  );
+  color: red;
+  display: flex;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY("-50%");
+  left: 120%;
+}
+.span-or::after {
+  content: "";
+  width: 200px;
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 100%),
+    rgba(255, 255, 255, 0.15)
+  );
+  color: red;
+  display: flex;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY("-50%");
+  right: 120%;
+}
+@media not all and (min-width: 640px) {
+  .span-or {
+    right: 0;
+    left: 0;
+  }
+}
+@layer utilities {
+  .hx-bold {
+    @apply text-[5rem] font-bold max-lg:text-[4rem] max-md:text-[2rem];
+  }
+}
